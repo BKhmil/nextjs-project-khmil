@@ -1,0 +1,22 @@
+@import '@/styles/mixins';
+@import '@/styles/constants';
+
+.UserInfo {
+  @apply flex items-center;
+
+  > div {
+    @apply flex flex-col items-center;
+
+    div {
+      @apply text-[18px];
+
+      @include theme-dark {
+        color: $app-grey;
+      }
+
+      @include theme-light {
+        color: $app-black;
+      }
+    }
+  }
+}

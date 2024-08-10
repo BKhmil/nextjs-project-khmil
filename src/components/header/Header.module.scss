@@ -1,0 +1,59 @@
+@import '@/styles/mixins';
+@import '@/styles/constants';
+
+.Header {
+  @apply h-[10vh] px-[8vw] flex justify-between items-center;
+
+  @include theme-dark {
+    background-color: $app-dark-blue;
+  }
+
+  @include theme-light {
+    background-color: $app-white;
+  }
+}
+
+.logoSection {
+  @apply flex items-center cursor-pointer;
+
+  div {
+    @apply text-[32px] h-fit font-semibold;
+
+    @include theme-dark {
+      color: $app-light-blue;
+    }
+
+    @include theme-light {
+      color: $app-black;
+    }
+  }
+
+  img {
+    @apply -mt-[6px] w-[70px];
+  }
+}
+
+.list {
+  @apply list-none flex gap-[20px];
+}
+
+.list a {
+  @apply no-underline text-[26px] transition-all duration-500;
+
+  &:hover {
+    @apply text-white;
+    text-shadow: 1px 1px 2px red, 0 0 1em blue, 0 0 0.2em #0196bd;
+  }
+
+  @include theme-dark {
+    color: $app-grey;
+  }
+
+  @include theme-light {
+    color: $app-black;
+  }
+}
+
+.list a[class="active"] {
+  @apply underline;
+}

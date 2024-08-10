@@ -1,6 +1,9 @@
-import type { Config } from "tailwindcss";
-
-const config: Config = {
+const config: {
+  plugins: any[];
+  theme: { extend: { backgroundImage: { "gradient-conic": string; "gradient-radial": string } } };
+  darkMode: string;
+  content: string[]
+} = {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -16,5 +19,6 @@ const config: Config = {
     },
   },
   plugins: [],
+  darkMode: 'class'
 };
 export default config;

@@ -1,0 +1,11 @@
+@mixin theme-dark {
+  html[class='dark'] & {
+    @content;
+  }
+}
+
+@mixin theme-light {
+  html[class='light'] & {
+    @content;
+  }
+}

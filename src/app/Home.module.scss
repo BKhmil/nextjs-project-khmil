@@ -1,0 +1,57 @@
+@import '@/styles/mixins';
+@import '@/styles/constants';
+
+.HomePage {
+  @apply h-[90vh] bg-cover;
+}
+
+.overlay {
+  @apply mt-[10vh] h-[90vh] absolute inset-0 pointer-events-none z-[1];
+
+  @include theme-dark {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+
+  @include theme-light {
+    background-color: rgba(255, 255, 255, 0.6);
+  }
+}
+
+.content {
+  @apply flex flex-col justify-between h-[40vh] relative z-[2] pt-[20vh] pl-[8vw] gap-5;
+
+  h1 {
+    @apply text-[50px];
+  }
+
+  p {
+    @apply text-[30px];
+  }
+
+  @include theme-dark {
+    color: $app-grey;
+  }
+
+  @include theme-light {
+    color: $app-black;
+  }
+
+  button {
+    @apply w-[200px] text-[26px] py-[10px] rounded-[20px] outline-none border-none cursor-pointer transition-all duration-500;
+
+    &:hover {
+      @apply text-white;
+      text-shadow: 1px 1px 2px red, 0 0 1em blue, 0 0 0.2em #0196bd;
+    }
+
+    @include theme-dark {
+      background-color: $app-dark-blue;
+      color: $app-light-blue;
+    }
+
+    @include theme-light {
+      background-color: $app-grey;
+      color: $app-black;
+    }
+  }
+}
