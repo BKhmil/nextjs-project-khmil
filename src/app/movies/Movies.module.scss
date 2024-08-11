@@ -1,0 +1,14 @@
+@import '@/styles/mixins';
+@import '@/styles/constants';
+
+.moviesPage {
+  @apply min-h-[90vh] pt-[4vh] px-[8vw];
+
+  @include theme-dark {
+    background-color: $app-black;
+  }
+
+  @include theme-light {
+    background-color: $app-white;
+  }
+}

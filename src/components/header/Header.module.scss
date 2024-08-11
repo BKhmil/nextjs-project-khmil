@@ -9,7 +9,7 @@
   }
 
   @include theme-light {
-    background-color: $app-white;
+    background-color: $app-grey;
   }
 }
 
@@ -26,10 +26,6 @@
     @include theme-light {
       color: $app-black;
     }
-  }
-
-  img {
-    @apply -mt-[6px] w-[70px];
   }
 }
 

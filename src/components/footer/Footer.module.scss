@@ -16,6 +16,8 @@
     @apply flex items-center;
 
     > span {
+      @apply font-bold mb-1;
+
       @include theme-dark {
         color: $app-grey;
       }
