@@ -1,0 +1,11 @@
+.poster {
+  @apply relative;
+
+  .play {
+    @apply absolute top-[16%] left-0 bg-black/50 opacity-0 flex justify-center items-center transition-opacity duration-700 ease-in;
+
+    .poster:hover & {
+      @apply opacity-100 cursor-pointer;
+    }
+  }
+}
