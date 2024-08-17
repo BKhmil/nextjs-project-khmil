@@ -1,0 +1,25 @@
+.PaginatorContainer {
+  @apply py-5 flex justify-center gap-1;
+}
+
+.PaginatorContainer button {
+  @apply outline-none border-solid border-2 w-[50px] h-[50px] text-xl bg-inherit cursor-pointer transition-all duration-500;
+
+  &:disabled {
+    @apply text-red-500;
+  }
+
+  &:hover {
+    @apply text-white;
+    text-shadow: 1px 1px 2px red, 0 0 1em blue, 0 0 0.2em #0196bd;
+  }
+
+  &:disabled:hover {
+    @apply text-red-500;
+    text-shadow: none;
+  }
+}
+
+.text {
+  @apply w-1/6 text-center text-2xl pt-1;
+}

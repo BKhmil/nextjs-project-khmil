@@ -1,0 +1,17 @@
+@import '@/styles/mixins';
+@import '@/styles/constants';
+
+.GenreBadge {
+  @apply px-2 py-1 rounded-sm text-sm inline-block;
+  margin: 2px;
+
+  @include theme-dark {
+    background-color: $app-dark-blue;
+    color: $app-grey;
+  }
+
+  @include theme-light {
+    background-color: $app-grey;
+    color: $app-black;
+  }
+}

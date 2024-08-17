@@ -1,0 +1,14 @@
+@import '@/styles/mixins';
+@import '@/styles/constants';
+
+.page {
+  @apply min-h-[90vh] pt-[4vh] pr-[8vw] pb-0 pl-[8vw];
+
+  @include theme-dark {
+    background-color: $app-black;
+  }
+
+  @include theme-light {
+    background-color: $app-white;
+  }
+}

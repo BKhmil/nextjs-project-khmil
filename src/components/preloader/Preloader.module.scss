@@ -1,0 +1,21 @@
+.preloader {
+  @apply w-full;
+}
+
+.bar {
+  @apply relative w-full h-1 bg-gray-400 overflow-hidden;
+}
+
+.dash {
+  @apply absolute w-1/5 h-full bg-blue-900;
+  animation: move 2s linear infinite;
+}
+
+@keyframes move {
+  0% {
+    left: -20%;
+  }
+  100% {
+    left: 100%;
+  }
+}

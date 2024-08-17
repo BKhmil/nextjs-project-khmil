@@ -1,24 +1,25 @@
 'use client';
 
 import {useTheme} from "next-themes";
-import css from './ThemeSwitcher.module.scss';
 import {useEffect, useState} from "react";
 
 const ThemeSwitcher = () => {
     const [mounted, setMounted] = useState<boolean>(false);
-    const { setTheme, resolvedTheme} = useTheme();
+    const {setTheme, resolvedTheme} = useTheme();
 
     useEffect(() => setMounted(true), []);
 
     const getNextTheme = () => resolvedTheme === 'light' ? 'dark' : 'light';
 
-    if (!mounted) return null;
+    if (!mounted) return <span className='cursor-pointer text-2xl'>..........................</span>;
 
     return (
         <div className={resolvedTheme === 'light' ? 'light' : 'dark'}
-             onClick={() => setTheme(resolvedTheme === 'light' ? 'dark' : 'light')}
+             onClick={() => {
+                 setTheme(resolvedTheme === 'light' ? 'dark' : 'light');
+             }}
         >
-            <span className='cursor-pointer border-2 p-1'>{`set ${getNextTheme()}`}</span>
+            <span className='cursor-pointer text-2xl'>{'set ' + getNextTheme() + ' theme'}</span>
         </div>
     );
 }

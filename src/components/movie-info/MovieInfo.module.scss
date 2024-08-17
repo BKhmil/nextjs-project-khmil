@@ -1,0 +1,42 @@
+@import '@/styles/mixins';
+@import '@/styles/constants';
+
+.MovieInfo {
+  @apply w-full flex flex-col gap-5;
+
+  @include theme-dark {
+    color: $app-grey;
+  }
+
+  @include theme-light {
+    color: $app-black;
+  }
+}
+
+.title {
+  @apply text-5xl w-full text-center;
+}
+
+.info {
+  @apply text-2xl w-[45%];
+
+  .part {
+    @apply mt-5;
+  }
+}
+
+.overviewContainer {
+  @apply my-5 mx-auto w-[85%];
+
+  .overviewTitle {
+    @apply text-4xl text-center mb-2;
+  }
+
+  .overviewText {
+    @apply text-3xl text-center mb-2;
+  }
+}
+
+.back-icon {
+  @apply w-[50px] absolute top-[15vh] left-[20px] cursor-pointer;
+}

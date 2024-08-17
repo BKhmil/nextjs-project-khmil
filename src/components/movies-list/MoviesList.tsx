@@ -1,22 +1,29 @@
-'use server';
-
-import {movieService} from "@/services/movie.service";
-import css from './MoviesList.module.scss';
 import MovieListCard from "@/components/movie-list-card/MovieListCard";
+import {IMovie} from "@/interfaces/movie.interface";
+import {genreService} from "@/services/genre.service";
+import {ApiError} from "@/services/services.helper";
+import css from './MoviesList.module.scss';
+import {IGenre} from "@/interfaces/genre.interface";
 
-interface sParams {
-    searchParams: {
-        page: string;
-    }
+interface IProps {
+    movies: IMovie[];
 }
 
-const MoviesList = async ({searchParams: page}: sParams) => {
-    const moviesPage = await movieService.getPageByNumber(Number(page) || 1);
+const MoviesList = async ({movies}: IProps) => {
+    let genres: IGenre[];
 
-    const moviesElements = moviesPage.results.map(movie =>
+    try {
+        genres = await genreService.getAllMovieGenres();
+        console.log(genres);
+    } catch (e) {
+        console.log((e as ApiError).details.status_message);
+    }
+
+    const moviesElements = movies.map(movie =>
         <MovieListCard
-        key={movie.id}
-        movie={movie}
+            key={movie.id}
+            movie={movie}
+            genres={genres}
         />
     );
 

@@ -1,3 +1,5 @@
+import {IApiError} from "@/interfaces/apiError.interface";
+
 const getHeaders = () => ({
     headers: {
         accept: 'application/json',
@@ -5,6 +7,16 @@ const getHeaders = () => ({
     }
 });
 
+class ApiError extends Error {
+    public details: IApiError;
+
+    constructor(details: IApiError) {
+        super(details.status_message);
+        this.details = details;
+    }
+}
+
 export {
-    getHeaders
+    getHeaders,
+    ApiError
 }
