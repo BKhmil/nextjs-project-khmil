@@ -1,10 +1,10 @@
 import React, {FC} from "react";
 import {IMovie} from "@/interfaces/movie.interface";
 import PosterPreview from "@/components/poster-preview/PosterPreview";
-import css from './MovieListCard.module.scss';
 import StarRatings from "@/components/star-ratings/StarRatings";
 import {IGenre} from "@/interfaces/genre.interface";
 import GenreBadge from "@/components/genre-badge/GenreBadge";
+import css from './MovieListCard.module.scss';
 
 interface IProps {
     movie: IMovie;

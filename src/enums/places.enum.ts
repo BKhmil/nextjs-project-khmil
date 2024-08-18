@@ -1,4 +1,5 @@
 export enum Places {
     MOVIES = 'movies',
-    GENRES = 'genres'
+    GENRES = 'genres',
+    SEARCH = 'search'
 }

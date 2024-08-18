@@ -1,5 +1,6 @@
 import css from './Home.module.scss';
 import ClientNavButton from "@/components/client-nav-button/ClientNavButton";
+import {AppRoutes} from "@/enums/app-routes.enum";
 
 export default function Home() {
     return (
@@ -9,7 +10,7 @@ export default function Home() {
                 <h1>Free Movies to Watch,<br/>Anytime Anywhere.</h1>
                 <p>The search is over! Let <span className='font-bold'>BK Movies</span> help you find the<br/>perfect
                     movie to watch tonight for free.</p>
-                <ClientNavButton navType='push' to='/movies'>Watch for free</ClientNavButton>
+                <ClientNavButton navType='push' to={AppRoutes.MOVIES}>Watch for free</ClientNavButton>
             </div>
         </div>
     );

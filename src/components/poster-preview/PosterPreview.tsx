@@ -22,7 +22,7 @@ const PosterPreview: FC<IProps> = ({path, alter, cName, withPlay, movieId}) => {
                 alt={alter}
                 className={cName}
                 width={width}
-                height={0}
+                height={300}
             />
             {
                 withPlay && <Link href={'/movies/' + movieId}>

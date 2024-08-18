@@ -6,7 +6,7 @@ import css from './Movies.module.scss';
 import Preloader from "@/components/preloader/Preloader";
 import {Suspense} from "react";
 import {ApiError} from "@/services/services.helper";
-import {Places} from "@/components/enums/places.enum";
+import {Places} from "@/enums/places.enum";
 
 interface IProps {
     searchParams: {

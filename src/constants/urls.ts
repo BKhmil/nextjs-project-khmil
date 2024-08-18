@@ -9,7 +9,7 @@ const urls = {
             '/discover/movie?with_genres=' + genreIds + '&page=' + pageNumber
     },
     search: {
-        getMovieByQuery: (query: string, pageNumber: string) =>
+        getMovieByQuery: (query: string, pageNumber: number) =>
             '/search/movie?query=' + query + '&page=' + pageNumber
     },
     genres: {

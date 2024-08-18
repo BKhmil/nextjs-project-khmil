@@ -1,5 +1,8 @@
 const MAX_PAGES_AMOUNT = 500;
 
+const DEFAULT_GENRE_ID = 28;
+
 export {
-    MAX_PAGES_AMOUNT
+    MAX_PAGES_AMOUNT,
+    DEFAULT_GENRE_ID
 }

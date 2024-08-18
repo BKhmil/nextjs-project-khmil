@@ -44,7 +44,9 @@ const MovieInfo: FC<IProps> = ({movie}) => {
             </div>
             <div className={css.overviewContainer}>
                 <div className={css.overviewTitle}>Overview</div>
-                <div className={css.overviewText}>{movie.overview}</div>
+                <div className={css.overviewText}>
+                    {movie.overview.length ? movie.overview : 'No overview for this movie yet'}
+                </div>
             </div>
             <BackButton />
         </div>

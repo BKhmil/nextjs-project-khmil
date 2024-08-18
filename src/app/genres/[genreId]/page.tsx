@@ -10,7 +10,7 @@ import GenresPaginator from "@/components/genres-paginator/GenresPaginator";
 import {IGenre} from "@/interfaces/genre.interface";
 import {genreService} from "@/services/genre.service";
 import css from "@/app/movies/Movies.module.scss";
-import {Places} from "@/components/enums/places.enum";
+import {Places} from "@/enums/places.enum";
 
 type TProps = Params & {
     searchParams: {
