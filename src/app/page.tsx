@@ -1,6 +1,12 @@
 import css from './Home.module.scss';
 import ClientNavButton from "@/components/client-nav-button/ClientNavButton";
 import {AppRoutes} from "@/enums/app-routes.enum";
+import type {Metadata} from "next";
+
+export const metadata: Metadata = {
+    title: "Home",
+    description: "Home page"
+};
 
 export default function Home() {
     return (

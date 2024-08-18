@@ -7,12 +7,18 @@ import Preloader from "@/components/preloader/Preloader";
 import {Suspense} from "react";
 import {ApiError} from "@/services/services.helper";
 import {Places} from "@/enums/places.enum";
+import type {Metadata} from "next";
 
 interface IProps {
     searchParams: {
         page?: string;
     };
 }
+
+export const metadata: Metadata = {
+    title: "Movies",
+    description: "Movies page"
+};
 
 const Content = async ({ searchParams }: IProps) => {
     const pageNumber = searchParams.page ? Number(searchParams.page) : 1;

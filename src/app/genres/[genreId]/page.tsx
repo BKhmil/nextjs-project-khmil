@@ -11,10 +11,22 @@ import {IGenre} from "@/interfaces/genre.interface";
 import {genreService} from "@/services/genre.service";
 import css from "@/app/movies/Movies.module.scss";
 import {Places} from "@/enums/places.enum";
+import type {Metadata} from "next";
 
 type TProps = Params & {
     searchParams: {
         page?: string;
+    };
+}
+
+export const generateMetadata = async ({params} : Params): Promise<Metadata> => {
+    const genres = await genreService.getAllMovieGenres();
+
+    const genre = genres.find(({id}) => id === Number(params.genreId));
+
+    return {
+        title: 'Genres | ' + genre?.name || 'error',
+        description: 'Genres page'
     };
 }
 

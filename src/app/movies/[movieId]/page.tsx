@@ -6,6 +6,16 @@ import {Suspense} from "react";
 import Preloader from "@/components/preloader/Preloader";
 import {Params} from "next/dist/shared/lib/router/utils/route-matcher";
 import css from './MovieInfoPage.module.scss';
+import type {Metadata} from "next";
+
+export const generateMetadata = async ({params} : Params): Promise<Metadata> => {
+    const movie = await movieService.findMovieById(params.movieId);
+
+    return {
+        title: 'Movies | ' + movie.title,
+        description: movie.overview || movie.title
+    };
+}
 
 const Content = async ({ params }: Params) => {
     const {movieId} = params;
