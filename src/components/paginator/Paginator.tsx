@@ -1,6 +1,6 @@
 'use client';
 
-import {FC} from "react";
+import {FC, useState} from "react";
 import {useParams, useRouter} from 'next/navigation';
 import {Places} from "@/enums/places.enum";
 import css from './Paginator.module.scss';
@@ -16,8 +16,20 @@ interface IProps {
 const Paginator: FC<IProps> = ({currentPage, totalPages, place}) => {
     const router = useRouter();
     const {genreId, query} = useParams();
+    const getPageSection = (page: number) => Math.floor((page - 1) / 10);
+
+    const [currentSection, setCurrentSection] = useState<number>(getPageSection(currentPage));
 
     const maxPages = Math.min(totalPages, MAX_PAGES_AMOUNT);
+    const totalSections = Math.ceil(maxPages / 10);
+
+
+    const handleSectionChange = (direction: number) => {
+        const newSection = currentSection + direction;
+        if (newSection >= 0 && newSection < totalSections) {
+            setCurrentSection(newSection);
+        }
+    };
 
     const handlePageChange = (page: number) => {
         if (page >= 1 && page <= maxPages) {
@@ -36,20 +48,37 @@ const Paginator: FC<IProps> = ({currentPage, totalPages, place}) => {
         }
     };
 
+    const renderSectionButtons = () => {
+        const startPage = currentSection * 10 + 1;
+        const endPage = Math.min(startPage + 9, maxPages);
+
+        const buttons = [];
+        for (let page = startPage; page <= endPage; page++) {
+            buttons.push(
+                <button
+                    key={page}
+                    onClick={() => handlePageChange(page)}
+                    className={page === currentPage ? css.active : ''}
+                >
+                    {page}
+                </button>
+            );
+        }
+        return buttons;
+    };
+
     return (
         <div className={css.PaginatorContainer}>
             <button
-                onClick={() => handlePageChange(currentPage - 1)}
-                disabled={currentPage === 1}
+                onClick={() => handleSectionChange(-1)}
+                disabled={currentSection === 0}
             >
                 {'<<'}
             </button>
-            <div className={css.text}>
-                page {currentPage} of {maxPages}
-            </div>
+            {renderSectionButtons()}
             <button
-                onClick={() => handlePageChange(currentPage + 1)}
-                disabled={currentPage === maxPages}
+                onClick={() => handleSectionChange(1)}
+                disabled={currentSection >= totalSections - 1}
             >
                 {'>>'}
             </button>

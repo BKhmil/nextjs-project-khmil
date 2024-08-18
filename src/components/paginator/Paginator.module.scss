@@ -23,3 +23,7 @@
 .text {
   @apply w-1/6 text-center text-2xl pt-1;
 }
+
+.active {
+  @apply underline;
+}
