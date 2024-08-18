@@ -7,10 +7,18 @@ import {Places} from "@/enums/places.enum";
 import ErrorBox from "@/components/error-box/ErrorBox";
 import Preloader from "@/components/preloader/Preloader";
 import css from "@/app/movies/Movies.module.scss";
+import type {Metadata} from "next";
 
 type TProps = Params & {
     searchParams: {
         page?: string;
+    };
+}
+
+export const generateMetadata = async ({params} : Params): Promise<Metadata> => {
+    return {
+        title: 'Movies | ' + params.query,
+        description: 'Search page'
     };
 }
 
