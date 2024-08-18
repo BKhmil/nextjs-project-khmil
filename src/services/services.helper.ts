@@ -1,9 +1,12 @@
 import {IApiError} from "@/interfaces/apiError.interface";
+import {_API_ACCESS_TOKEN} from "@/constants/utils";
 
 const getHeaders = () => ({
     headers: {
         accept: 'application/json',
-        Authorization: `Bearer ${process.env.TMDB_API_TOKEN}`
+        // I forgot that only I have access to the .env file
+        // Authorization: `Bearer ${process.env.TMDB_API_TOKEN}`
+        Authorization: `Bearer ${_API_ACCESS_TOKEN}`
     }
 });
 
