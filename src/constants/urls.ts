@@ -5,7 +5,7 @@ const urls = {
     discover: {
         getMoviesPage: (pageNumber: number) =>
             '/discover/movie?page=' + pageNumber.toString(),
-        getMoviesByGenre: (genreIds: number, pageNumber: string) =>
+        getMoviesByGenre: (genreIds: number, pageNumber: number) =>
             '/discover/movie?with_genres=' + genreIds + '&page=' + pageNumber
     },
     search: {

@@ -1,0 +1,25 @@
+@import '@/styles/mixins';
+@import '@/styles/constants';
+
+.GenreBadge {
+  @apply border-none outline-none rounded-full py-2 px-3 m-1 inline-block cursor-pointer transition-all duration-500;
+
+  @include theme-dark {
+    background-color: $app-dark-blue;
+    color: $app-grey;
+  }
+
+  @include theme-light {
+    background-color: $app-grey;
+    color: $app-dark-blue;
+  }
+
+  &:hover {
+    @apply text-white;
+    text-shadow: 1px 1px 2px red, 0 0 1em blue, 0 0 0.2em #0196bd;
+  }
+}
+
+.active {
+  @apply underline;
+}

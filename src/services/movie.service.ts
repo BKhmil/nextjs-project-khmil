@@ -16,8 +16,15 @@ const movieService = {
 
         return await res.json() as IPage;
     },
-    getMoviesPageWithGenre: async (genreIds: number, pageNumber: string): Promise<IPage> => {
-        const res = await fetch(API_BASE_URL + urls.discover.getMoviesByGenre(genreIds, pageNumber));
+    getMoviesPageWithGenre: async (genreIds: number, pageNumber: number): Promise<IPage> => {
+        const res = await fetch(API_BASE_URL + urls.discover.getMoviesByGenre(genreIds, pageNumber), {
+            ...getHeaders(),
+            cache: 'no-store'
+        });
+
+        if (!res.ok) {
+            throw new ApiError(await res.json());
+        }
 
         return await res.json();
     },

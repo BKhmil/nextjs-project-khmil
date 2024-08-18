@@ -14,7 +14,6 @@ const MoviesList = async ({movies}: IProps) => {
 
     try {
         genres = await genreService.getAllMovieGenres();
-        console.log(genres);
     } catch (e) {
         console.log((e as ApiError).details.status_message);
     }
